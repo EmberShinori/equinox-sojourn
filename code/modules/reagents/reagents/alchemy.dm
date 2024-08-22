@@ -109,9 +109,9 @@
 				E.damage = max(E.damage - (5), 0)
 
 
-/datum/reagent/lively_concoxion
+/datum/reagent/lively_concoction
 	name = "Ichor of Health"
-	id = "lively_concoxion"
+	id = "lively_concoction"
 	description = "Gelified blood that strengthens the body. Has an unpleasant aftereffect."
 	taste_description = "dry iron"
 	reagent_state = LIQUID
@@ -121,21 +121,21 @@
 	metabolism = 0.001 //Takes a long time to remove, mercy period to get to safety since it knocks you down horribly
 	overdose = 3
 
-/datum/reagent/lively_concoxion/overdose(mob/living/carbon/M)
+/datum/reagent/lively_concoction/overdose(mob/living/carbon/M)
 	M.adjustCloneLoss(3)
 
-/datum/reagent/lively_concoxion/affect_blood(mob/living/carbon/M)
+/datum/reagent/lively_concoction/affect_blood(mob/living/carbon/M)
 	M.add_chemical_effect(CE_TOXIN, 1)
 
-/datum/reagent/lively_concoxion/affect_ingest(mob/living/carbon/M, alien, effect_multiplier)
+/datum/reagent/lively_concoction/affect_ingest(mob/living/carbon/M, alien, effect_multiplier)
 	return
 
-/datum/reagent/lively_concoxion/on_mob_add(mob/living/M)
+/datum/reagent/lively_concoction/on_mob_add(mob/living/M)
 	. = ..()
 	M.maxHealth += 50
 	M.health += 50
 
-/datum/reagent/lively_concoxion/on_mob_delete(mob/living/M)
+/datum/reagent/lively_concoction/on_mob_delete(mob/living/M)
 	. = ..()
 	M.maxHealth -= 50
 	M.health -= 50

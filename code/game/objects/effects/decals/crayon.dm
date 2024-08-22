@@ -375,7 +375,7 @@
 	var/not_in_good_faith = pick("To late for that, rejecter!",\
 	"You already rejected reality!",\
 	"That pesky jewelry says otherwise...",\
-	"Seems your still not willing to play by my rules.", \
+	"Seems you're still not willing to play by my rules.", \
 	"Come back after you recalculate your problem...",\
 	"Your already commited to your playmate!",\
 	"Your friends wouldn't like our playdate.",\
@@ -392,14 +392,14 @@
 
 	//We already would have rejected you, run along now.
 	if(M.species?.reagent_tag == IS_SYNTHETIC || M.species?.reagent_tag == IS_SLIME)
-		var/in_good_faith = pick("Your a puppet losely strung, no playtime for you!",\
+		var/in_good_faith = pick("You're a puppet loosely strung, no playtime for you!",\
 		"Quite a frail wooden doll.",\
 		"Tea time is for well played puppets!",\
-		"Your strings have been cut, we can't play until your fixed!", \
-		"Your not fit for rougher play.",\
+		"Your strings have been cut, we can't play until you're fixed!", \
+		"You're not fit for rougher play.",\
 		"You were not made to play!",\
 		"Did you fall off the shelf? Best to go back to play with more careful friends!",\
-		"Come back when your fixed!")
+		"Come back when you're fixed!")
 
 		to_chat(M, "<span class='info'>Some laughter echos. </span><span class='angelsay'>[in_good_faith]</span>")
 		return
@@ -409,23 +409,23 @@
 		if(30 <= CI.power) //cup keeps you safe if it has enough juice.
 			CI.power -= 30
 			return
-		if(CI.power <= 0) //safty set
+		if(CI.power <= 0) //safety set
 			CI.power = 0
 		if(M.nutrition >= 100)
 			M.nutrition -= 100 //hunger is drained from the person to pay the cost of protection.
 			return
 
-		//If you cant pay the hunger, is not a synth and dont have 30 cruciform power, we take a lim. When removing you from the playime
+		//If you can't pay the hunger, are not a synth, and don't have 30 cruciform power, we take a limb when removing you from playtime
 		var/obj/item/organ/external/organ = M.get_organ(pick(BP_R_LEG, BP_L_LEG, BP_R_ARM, BP_L_ARM))
 		if(!organ)
-			//You already suffered enuff of fun
+			//You already suffered enough fun
 			M.visible_message("<font size=1>\red[M.name] is spun around by [src].</font><\red>", "\red[src] spins you around at high speeds!")
 			return
 		organ.droplimb(TRUE, DISMEMBER_METHOD_EDGE)
 		M.visible_message("<font size=1>\red[M.name] is spun around by [src], a sickening sound coming from a limb being ripped off by vacuum force!.</font><\red>", "\red[src] spins you around, violently ripping one of your limbs off!")
 		return
 
-//proc to check that people arn't cheesing and can actually cast.
+//Proc to check that people aren't cheesing and can actually cast.
 /obj/effect/decal/cleanable/crayon/proc/body_checks(mob/living/carbon/human/M, blind = FALSE)
 	var/pass = FALSE
 
@@ -442,12 +442,12 @@
 		//log_debug(" [M.name] checking for blind sighted and  blind.")
 		pass = TRUE
 
-	//These two races do not get the full consquences of action, weather it be blood or sanity, making them invailded.
+	//These two races do not get the full consquences of action, whether it be blood or sanity, making them invalid.
 	if(M.species?.reagent_tag == IS_SYNTHETIC || M.species?.reagent_tag == IS_SLIME)
 		//log_debug(" [M.name] checking synths and slimes.")
 		pass = FALSE
 
-	//We need materal to transmutate, even if it dosnt call for it, we still check for it.
+	//We need material to transmutate. Even if it doesn't call for it, we still check for it.
 	if(M.get_blood_volume() < 50)
 		//log_debug(" [M.name] checking blood amount.")
 		pass = FALSE
@@ -480,7 +480,7 @@
 /obj/effect/decal/cleanable/crayon/proc/babel_spell(mob/living/carbon/human/M)
 	var/datum/reagent/organic/blood/B = M.get_blood()
 	M.add_language(LANGUAGE_CULT)
-	to_chat(M, "<span class='warning'>Your head throbs like a maddening heartbeat, eldritch knowledge gnawing open the doors of your psyche and crawling inside, granting you a glimpse of languages older than time itself. The heart pounds in synchrony, making up for the price of blood in exchange.</span>")
+	to_chat(M, "<span class='warning'>Your head throbs like a maddening heartbeat, eldritch knowledge gnawing open the doors of your psyche and crawling inside, granting you a glimpse of languages older than time itself. The heart pounds in synchronicity, making up for the price paid in blood.</span>")
 	playsound(M, 'sound/effects/singlebeat.ogg', 100)
 	M.maxHealth -= 20
 	M.health -= 20
@@ -558,7 +558,7 @@
 	if(!able_to_cast)
 		return
 
-	to_chat(M, "<span class='warning'>Your blood runs thin as you catch a glimpse of forbidden aeons, shortening your lifespan as you come to terms with your feeble inconsequentiality on the greater scheme of things.</span>")
+	to_chat(M, "<span class='warning'>Your blood runs thin as you catch a glimpse of forbidden aeons, shortening your lifespan as you come to terms with your feeble inconsequentiality in the greater scheme of things.</span>")
 	M.maxHealth -= 5
 	M.health -= 5
 	B.remove_self(20)
@@ -626,7 +626,7 @@
 /obj/effect/decal/cleanable/crayon/proc/flux_spell(mob/living/carbon/human/M)
 	var/datum/reagent/organic/blood/B = M.get_blood()
 	var/area/my_area = get_area(src)
-	to_chat(M, "<span class='warning'>Reality itself fluctuates around you as a canvas of impending doom. The truth behind the heat death of the universe draws ever nearer, thugged by your strings...</span>")
+	to_chat(M, "<span class='warning'>Reality itself fluctuates around you as a canvas of impending doom. The truth behind the heat death of the universe draws ever nearer, tugged by your strings...</span>")
 	my_area.bluespace_hazard_threshold -= 1
 	GLOB.bluespace_hazard_threshold -= 1
 	bluespace_entropy(1, get_turf(src), TRUE)
@@ -650,7 +650,7 @@
 /obj/effect/decal/cleanable/crayon/proc/negentropy_spell(mob/living/carbon/human/M)
 	var/datum/reagent/organic/blood/B = M.get_blood()
 	var/area/my_area = get_area(src)
-	to_chat(M, "<span class='info'>The threads of creation itself are spun anew, a feeling of inextricable tranquility permeates your thoughts. For reasons perhaps unbeknownst to you, the death heat of the universe strays further away...</span>")
+	to_chat(M, "<span class='info'>The threads of creation itself are spun anew, a feeling of inextricable tranquility permeates your thoughts. For reasons perhaps unbeknownst to you, the heat death of the universe strays further away...</span>")
 	my_area.bluespace_hazard_threshold += 1
 	GLOB.bluespace_hazard_threshold += 1
 	bluespace_entropy(-5, get_turf(src))
@@ -706,7 +706,7 @@
 	return
 
 // Sky: / Above:
-// Converts a open omega book into a drawing of the sun, a oddity with a perk that exspands the skill cap by 30 points.
+// Converts a open omega book into a drawing of the sun, a oddity with a perk that expands the skill cap by 30 points.
 /obj/effect/decal/cleanable/crayon/proc/sun_spell(mob/living/carbon/human/M, able_to_cast = FALSE)
 	var/datum/reagent/organic/blood/B = M.get_blood()
 	if(!able_to_cast)
@@ -719,7 +719,7 @@
 		to_chat(M, "<span class='info'>A cold voice creeks. </span><span class='angelsay'> With this messy canvas, I can only provide you a glance of that.</span>")
 
 		if(!body_checks(M))
-			to_chat(M, "<span class='info'>A cold voice sighs. </span><span class='angelsay'> You will not do. Waste the others time.</span>")
+			to_chat(M, "<span class='info'>A cold voice sighs. </span><span class='angelsay'> You will not do. Waste the others' time.</span>")
 			bluespace_entropy(3, get_turf(src)) //Wasting an artists time is rather rude
 			return
 
@@ -849,7 +849,7 @@
 			M.sanity.changeLevel(-5)
 			qdel(knifey)
 		if(istype(knifey, /obj/item/tool/knife/ritual/sickle) && !istype(knifey, /obj/item/tool/knife/ritual/blade))
-			to_chat(M, "<span class='warning'>Your weapon twists its form, metal bending as if it were flesh with a sickening crunch as is ascends into its final form!</span>")
+			to_chat(M, "<span class='warning'>Your weapon twists its form, metal bending as if it were flesh with a sickening crunch as it ascends into its final form!</span>")
 			playsound(loc, 'sound/items/biotransform.ogg', 50)
 			new /obj/item/tool/knife/ritual/blade(knifey.loc)
 			B.remove_self(100)

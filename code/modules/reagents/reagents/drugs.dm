@@ -24,7 +24,7 @@
 /datum/reagent/drug/space_drugs
 	name = "Space drugs"
 	id = "space_drugs"
-	description = "An illegal chemical compound used as drug. Also a minor painkiller."
+	description = "An illegal chemical compound used as a drug. Also a minor painkiller."
 	taste_description = "bitterness"
 	taste_mult = 0.4
 	reagent_state = LIQUID
@@ -49,7 +49,7 @@
 /datum/reagent/drug/lean
 	name = "antihistamine hydrochloride"
 	id = "lean"
-	description = "A weak sleeping agent mixed with carbondated water to make it into a drinkable substaince, but unstable in the blood. Oftin mixed with soda or coffee to get a high."
+	description = "A weak sleeping agent mixed with carbondated water to make it into a drinkable substaince, but unstable in the blood. Often mixed with soda or coffee to get a high."
 	taste_description = "bitter sweetness"
 	taste_mult = 3
 	reagent_state = LIQUID
@@ -88,7 +88,7 @@
 /datum/reagent/drug/serotrotium
 	name = "Serotrotium"
 	id = "serotrotium"
-	description = "A chemical compound that promotes concentrated production of the serotonin neurotransmitter in humans, also acts as a mild painkiller."
+	description = "A chemical compound that promotes concentrated production of the serotonin neurotransmitter in humans. Also acts as a mild painkiller."
 	taste_description = "pure happiness"
 	reagent_state = LIQUID
 	color = "#202040"
@@ -183,7 +183,7 @@
 /datum/reagent/drug/mindbreaker
 	name = "Mindbreaker Toxin"
 	id = "mindbreaker"
-	description = "A powerful hallucinogen, it can cause fatal effects in users, stimulates cell growth."
+	description = "A powerful hallucinogen, it can cause fatal effects in users, and stimulates cell growth."
 	taste_description = "sourness"
 	reagent_state = LIQUID
 	color = "#B31008"
@@ -235,7 +235,7 @@
 			for(var/datum/breakdown/B in affected.sanity.breakdowns)
 				if(B)
 					B.finished = TRUE
-					to_chat(M, SPAN_NOTICE("You feel that something eases the strain on your sanity. But at which price?"))
+					to_chat(M, SPAN_NOTICE("You feel that something eases the strain on your sanity, but at what price?"))
 
 /datum/reagent/drug/mindwipe/withdrawal_act(mob/living/carbon/M)
 	M.stats.addTempStat(STAT_COG, STAT_LEVEL_ADEPT, STIM_TIME, "mindwipe_w")
@@ -245,7 +245,7 @@
 /datum/reagent/drug/psi_juice
 	name = "Cerebrix"
 	id = "psi_juice"
-	description = "A rare chemical originally developed by the Soteria, this quasi-stimulant enhances the mind of a psion and restores their psi essence. However its highly addictive and highly \
+	description = "A rare chemical originally developed by Soteria. This quasi-stimulant enhances the mind of a psion and restores their psi essence. However, it's highly addictive, and highly \
 	dangerous if overdosed. Useless to non-psions. Has a secondary effect when drank that causes the user to enhance their cognitive abilities."
 	taste_description = "ascension"
 	color = "#E700E7"
@@ -405,7 +405,7 @@
 /datum/reagent/drug/hyperzine
 	name = "Hyperzine"
 	id = "hyperzine"
-	description = "Hyperzine is a highly effective, long lasting, muscle stimulant, but drains the body. Also promotes muscle regrowth. Will worsen injuries."
+	description = "Hyperzine is a highly effective, long-lasting muscle stimulant, but drains the body. Also promotes muscle regrowth. Will worsen injuries."
 	taste_description = "acid"
 	reagent_state = LIQUID
 	color = "#FF3300"
@@ -436,7 +436,7 @@
 			H.heal_organ_damage(-0.1, -0.1)
 
 /datum/reagent/drug/hyperzine/affect_ingest(var/mob/living/carbon/M, var/alien, var/effect_multiplier)
-	M.nutrition = max(M.nutrition - 1 * effect_multiplier, 0) //Drains the stomic faster
+	M.nutrition = max(M.nutrition - 1 * effect_multiplier, 0) //Drains the stomach faster
 
 /datum/reagent/drug/hyperzine/withdrawal_act(mob/living/carbon/M)
 	M.add_chemical_effect(CE_SLOWDOWN, 1)
@@ -479,7 +479,7 @@
 	name = "Nanoblood"
 	id = "nanoblood"
 	description =  "A highly dangerous and highly advanced Erythropoiesis-stimulant. Typically reserved for high-end paramedic services or military hospitals - any instance where the \
-	low LD-50 and difficulty of synthesis can be considered acceptable in the face of its rapid effectiveness even in low doses. Must be stored at temperatures not significantly higher\
+	low LD-50 and difficulty of synthesis can be considered acceptable in the face of its rapid effectiveness, even in low doses. Must be stored at temperatures not significantly higher\
 	than the human body."
 	taste_description = "copper and batteries"
 	reagent_state = LIQUID
@@ -504,8 +504,8 @@
 	metabolism = REM
 	overdose = REAGENTS_OVERDOSE/10
 	color = "#8a0303"
-	description = "A highly dangerous and highly advanced Erythropoiesis-stimulant that has been improperly stored. Generally identifiable by an off-color, if it has not been kept in incorrect\
-	 conditions for too long it will likely still work albeit notably less potently, though side effects are highly likely."
+	description = "A highly dangerous and highly advanced Erythropoiesis-stimulant that has been improperly stored. Generally identifiable by an off-color. If it has not been kept in incorrect\
+	 conditions for too long, it will likely still work, albeit notably less potently, though side effects are highly likely."
 
 /datum/reagent/drug/nanobad/affect_blood(mob/living/carbon/M, alien, effect_multiplier)
 	M.add_chemical_effect(CE_BLOODRESTORE, 3 * effect_multiplier)
@@ -515,7 +515,7 @@
 /datum/reagent/drug/sanguinum
 	name = "Sanguinum"
 	id = "sanguinum"
-	description = "Forces bone marrow to produce more blood than usual. Have irritating side effects"
+	description = "Forces bone marrow to produce more blood than usual. Has irritating side effects."
 	taste_description = "metal"
 	reagent_state = LIQUID
 	color = "#e06270"
@@ -553,7 +553,7 @@
 /datum/reagent/drug/nosfernium
 	name = "Nosfernium"
 	id = "nosfernium"
-	description = "A chemical for when the body is bleed dry, and if its not will ensure you are left a skeleton."
+	description = "A chemical for when the body is bled dry. If it's not, will ensure you are left a skeleton."
 	taste_description = "teeth"
 	reagent_state = LIQUID
 	color = "#e06270"

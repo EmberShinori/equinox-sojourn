@@ -16,8 +16,8 @@
 	result_amount = 1
 	require_containers = list(/obj/item/reagent_containers/glass/beaker/flask_alchemy)
 
-/datum/chemical_reaction/lively_concoxion
-	result = "lively_concoxion"
+/datum/chemical_reaction/lively_concoction
+	result = "lively_concoction"
 	required_reagents = list("detox" = 1, "viroputine" = 1, "citalopram" = 1)
 	result_amount = 1
 	require_containers = list(/obj/item/reagent_containers/glass/beaker/flask_alchemy)
@@ -69,7 +69,7 @@
 //hardest one to make
 /datum/chemical_reaction/red_heart
 	result = "red_heart"
-	required_reagents = list("blood" = 1, MATERIAL_GOLD = 1, "lively_concoxion" = 1)
+	required_reagents = list("blood" = 1, MATERIAL_GOLD = 1, "lively_concoction" = 1)
 	result_amount = 1
 	mix_message = "The blood congeals into a golden droplet!"
 	require_containers = list(/obj/item/reagent_containers/glass/beaker/flask_alchemy)
